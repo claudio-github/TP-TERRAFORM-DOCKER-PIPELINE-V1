@@ -10,6 +10,15 @@ pipeline {
                 }
             }
         }
+
+         stage('Terraform version') {
+            steps{
+                script{
+                    sh 'terraform version'
+                }
+            }
+        }
+
     }
 
 }
