@@ -17,8 +17,20 @@ pipeline {
         RMT_ST_KEY=credentials('RMT_ST_KEY')
     }
 
+
+        options {
+            skipDefaultCheckout(true)
+        }
     
         stages{
+
+           stage('Clean workspace') {
+            steps{
+                script{
+                    cleanWs()
+                }
+            }
+        }
 
           stage('List terraform files') {
             steps{
