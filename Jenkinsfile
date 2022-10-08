@@ -19,19 +19,14 @@ pipeline {
 
     
         stages{
-          stage('Change directory') {
-            steps{
-                dir('Terraform') {
-                    sh 'ls -la'
-                }
-            }
-        }
 
           stage('List terraform files') {
             steps{
+                dir('Terraform'){
                 script {
                     sh 'ls -la'
                 }
+              }
             }
         }
 
