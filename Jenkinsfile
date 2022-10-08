@@ -83,6 +83,22 @@ pipeline {
           }
         }
 
+        stage('Terraform Apply') {
+            steps{
+                dir('Terraform'){
+                script{
+                    sh "terraform ${params.action} --auto-approve"                    
+                }
+            }
+          }
+        }
+
+    }
+
+    post {
+        always {
+            cleanWs()
+        }
     }
 
 }
