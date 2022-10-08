@@ -17,17 +17,17 @@ pipeline {
         RMT_ST_KEY=credentials('RMT_ST_KEY')
     }
 
-    stages{
-        stage('Checkout files') {
+    
+        stages{
+        stage('Change directory') {
             steps{
-                script{
+                dir('Terraform') {
                     sh 'ls -la'
                 }
             }
         }
 
-        stages{
-        stage('Change directory') {
+          stage('Change directory') {
             steps{
                 dir('Terraform') {
                     sh 'ls -la'
