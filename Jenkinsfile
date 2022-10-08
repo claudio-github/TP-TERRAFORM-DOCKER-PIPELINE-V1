@@ -32,6 +32,14 @@ pipeline {
             }
         }
 
+            stage('Checkout') {
+            steps{
+                script{
+                    checkout scm
+                }
+            }
+        } 
+
           stage('List terraform files') {
             steps{
                 dir('Terraform'){
