@@ -26,6 +26,15 @@ pipeline {
             }
         }
 
+        stages{
+        stage('Change directory') {
+            steps{
+                dir('Terraform') {
+                    sh 'ls -la'
+                }
+            }
+        }
+
          stage('Terraform version') {
             steps{
                 script{
@@ -37,7 +46,7 @@ pipeline {
         stage('Terraform Init') {
             steps{
                 script{
-                    dir('Terraform')
+                    
                     sh "terraform init \
                             -backend-config='resource_group_name=$RMT_ST_RG' \
                             -backend-config='storage_account_name=$RMT_ST_ST' \
