@@ -40,6 +40,14 @@ pipeline {
             }
         } 
 
+            stage('List all root files') {
+            steps{
+                script {
+                    sh 'ls -la'
+                }
+            }
+        }
+
           stage('List terraform files') {
             steps{
                 dir('Terraform'){
@@ -103,7 +111,7 @@ pipeline {
           }
         }
 
-        /*stage('Terraform Apply') {
+        stage('Terraform Action') {
             steps{
                 dir('Terraform'){
                 script{
@@ -111,7 +119,7 @@ pipeline {
                 }
             }
           }
-        }*/
+        }
 
     }
 
