@@ -40,6 +40,7 @@ pipeline {
 
         stage('Terraform Init') {
             steps{
+                dir('Terraform'){
                 script{
                     
                     sh "terraform init \
@@ -48,31 +49,38 @@ pipeline {
                             -backend-config='container_name=$RMT_ST_CI' \
                             -backend-config='key=$RMT_ST_KEY'"
                 }
+              }
             }  
         }
 
         stage('Terraform Format') {
             steps{
+                dir('Terraform'){
                 script{
                     sh 'terraform fmt'
                 }
             }
+          }
         }
 
         stage('Terraform Validate') {
             steps{
+                dir('Terraform'){
                 script{
                     sh 'terraform validate'
                 }
             }
+          }
         }
 
         stage('Terraform Plan') {
             steps{
+                dir('Terraform'){
                 script{
                     sh "terraform plan"                    
                 }
             }
+          }
         }
 
     }
