@@ -83,7 +83,7 @@ pipeline {
           }
         }
 
-        stage('Terraform Apply') {
+        /*stage('Terraform Apply') {
             steps{
                 dir('Terraform'){
                 script{
@@ -91,7 +91,7 @@ pipeline {
                 }
             }
           }
-        }
+        }*/
 
     }
 
