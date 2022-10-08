@@ -2,6 +2,21 @@ pipeline {
 
     agent any
 
+        parameters {
+        choice choices: ['apply', 'destroy'], name: 'action'
+    }
+
+    environment {
+        ARM_CLIENT_ID=credentials('ARM_CLIENT_ID')
+        ARM_TENANT_ID=credentials('ARM_TENANT_ID')
+        ARM_SUBSCRIPTION_ID=credentials('ARM_SUBSCRIPTION_ID')
+        ARM_CLIENT_SECRET=credentials('ARM_CLIENT_SECRET')
+        RMT_ST_RG=credentials('RMT_ST_RG')
+        RMT_ST_ST=credentials('RMT_ST_ST')
+        RMT_ST_CI=credentials('RMT_ST_CI')
+        RMT_ST_KEY=credentials('RMT_ST_KEY')
+    }
+
     stages{
         stage('Checkout files') {
             steps{
@@ -54,7 +69,6 @@ pipeline {
                 }
             }
         }
-
 
     }
 
