@@ -62,7 +62,7 @@ pipeline {
             steps{
                 dir('Terraform'){
                     script{
-                    sh "terraform init \
+                    sh "terraform init -backend=true\
                             -backend-config='resource_group_name=$RMT_ST_RG' \
                             -backend-config='storage_account_name=$RMT_ST_ST' \
                             -backend-config='container_name=$RMT_ST_CI' \
