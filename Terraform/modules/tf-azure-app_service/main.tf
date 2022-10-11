@@ -12,7 +12,7 @@ resource "azurerm_app_service" "app_service" {
   }
   
    identity {
-   type         = "SystemAssigned, UserAssigned"
+   type         = "SystemAssigned"
    }
 
 
