@@ -46,7 +46,7 @@ module "tf-azure-app_insights" {
 
 module "tf-azure-app_services" {
    source = "./modules/tf-azure-app_service"
-   name = "${var.name}${random_string.random.result}"
+   name = "${var.name}"
    resource_group_name = module.tf-azure-resource_group.name
    location = var.location
    app_service_plan_id = module.tf-azure-app_service_plan.app_service-out
