@@ -4,5 +4,16 @@ resource "azurerm_app_service" "app_service" {
   resource_group_name = var.resource_group_name
   app_service_plan_id = var.app_service_plan_id
   site_config {
+
+   scm_type  = "VSTSRM"
+   always_on = "true"
+   linux_fx_version  = "DOCKER|containerregistrytp0001.azurecr.io/web01_image:latest"
+
   }
+  
+   identity {
+   type         = "SystemAssigned, UserAssigned"
+   }
+
+
 }
