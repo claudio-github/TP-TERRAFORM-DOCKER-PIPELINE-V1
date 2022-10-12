@@ -22,3 +22,15 @@ variable "resource_group_name" {
 variable "app_service_plan_id" {
   
 }
+
+variable "acr_password" {
+  
+}
+
+variable "acr_url" {
+  
+}
+
+variable "acr_username" {
+  
+}

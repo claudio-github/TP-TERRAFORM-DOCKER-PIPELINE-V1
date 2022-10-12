@@ -15,9 +15,9 @@ resource "azurerm_app_service" "app_service" {
    }
 
     app_settings = {
-      "DOCKER_REGISTRY_SERVER_PASSWORD" = data.azurerm_container_registry.myacr.admin_password
-      "DOCKER_REGISTRY_SERVER_URL" = data.azurerm_container_registry.myacr.login_server
-      "DOCKER_REGISTRY_SERVER_USERNAME" = data.azurerm_container_registry.myacr.admin_username
+      "DOCKER_REGISTRY_SERVER_PASSWORD" = var.acr_password
+      "DOCKER_REGISTRY_SERVER_URL" = var.acr_url
+      "DOCKER_REGISTRY_SERVER_USERNAME" = var.acr_username
   }
 
 }

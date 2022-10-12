@@ -58,4 +58,10 @@ module "tf-azure-app_services" {
    resource_group_name = module.tf-azure-resource_group.name
    location = var.location
    app_service_plan_id = module.tf-azure-app_service_plan.app_service-out
+
+   acr_password = data.azurerm_container_registry.myacr.admin_password
+   acr_url = data.azurerm_container_registry.myacr.login_server
+   acr_username = data.azurerm_container_registry.myacr.admin_username
+
+
 }
