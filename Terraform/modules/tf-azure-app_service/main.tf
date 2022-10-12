@@ -6,6 +6,7 @@ resource "azurerm_app_service" "app_service" {
   site_config {
 
     linux_fx_version  = "DOCKER|containerregistrytp0001.azurecr.io/web01_image:latest"
+    
 
   }
   
@@ -13,5 +14,10 @@ resource "azurerm_app_service" "app_service" {
    type         = "SystemAssigned"
    }
 
+    app_settings = {
+      "DOCKER_REGISTRY_SERVER_PASSWORD" = data.azurerm_container_registry.myacr.admin_password
+      "DOCKER_REGISTRY_SERVER_URL" = data.azurerm_container_registry.myacr.login_server
+      "DOCKER_REGISTRY_SERVER_USERNAME" = data.azurerm_container_registry.myacr.admin_username
+  }
 
 }

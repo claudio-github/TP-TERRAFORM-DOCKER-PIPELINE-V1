@@ -24,6 +24,14 @@ resource "random_string" "random" {
 }
 
 
+
+data "azurerm_container_registry" "myacr" {
+  name = "containerregistrytp0001"
+  resource_group_name = "containerregistrytalentpool-rg"
+
+}
+
+
 module "tf-azure-resource_group" {
   source   = "./modules/tf-azure-resource_group"
   name     = var.name
