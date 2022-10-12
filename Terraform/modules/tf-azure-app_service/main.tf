@@ -6,7 +6,7 @@ resource "azurerm_app_service" "app_service" {
 
   site_config {
 
-    linux_fx_version  = "DOCKER|${var.acr_url}/web01_image:latest"
+    linux_fx_version  = "DOCKER|${var.acr_url}/${var.docker_image_name}:latest"
     
   }
   

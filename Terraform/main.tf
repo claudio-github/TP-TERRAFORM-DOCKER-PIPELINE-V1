@@ -63,5 +63,6 @@ module "tf-azure-app_services" {
    acr_url = data.azurerm_container_registry.myacr.login_server
    acr_username = data.azurerm_container_registry.myacr.admin_username
 
+   docker_image_name = "web01_image"
 
 }

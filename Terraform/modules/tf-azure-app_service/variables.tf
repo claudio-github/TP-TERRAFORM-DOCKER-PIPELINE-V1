@@ -34,3 +34,7 @@ variable "acr_url" {
 variable "acr_username" {
   
 }
+
+variable "docker_image_name" {
+  
+}
